@@ -154,15 +154,15 @@ h2 + p {
 }
 
 .btn-danger {
-  background: linear-gradient(135deg, #fb7185 0%, #f97316 100%);
+  background: linear-gradient(135deg, rgba(192, 132, 252, 0.95) 0%, rgba(236, 72, 153, 0.92) 100%);
   border: none;
-  box-shadow: 0 16px 30px rgba(249, 115, 22, 0.22);
+  box-shadow: 0 16px 30px rgba(192, 132, 252, 0.22);
 }
 
 .btn-danger:hover,
 .btn-danger:focus {
   filter: brightness(1.08);
-  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.3);
+  box-shadow: 0 20px 40px rgba(192, 132, 252, 0.32);
 }
 
 .btn:focus {
@@ -221,16 +221,50 @@ header {
 /* Task actions container - groups buttons together */
 .task-actions {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.55rem;
   align-items: center;
 }
 
-/* Smaller mark as done button */
+/* Modern mark as done button */
 .mark-btn {
-  padding: 0.4rem 0.6rem !important;
-  font-size: 0.85rem !important;
-  min-width: 32px;
-  height: 32px;
+  padding: 0.4rem 0.9rem !important;
+  font-size: 0.95rem !important;
+  min-width: 42px;
+  height: 38px;
+  border-radius: 999px !important;
+  background: rgba(52, 211, 153, 0.16) !important;
+  color: #d9f7e9 !important;
+  border: 1px solid rgba(52, 211, 153, 0.35) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.mark-btn:hover,
+.mark-btn:focus {
+  transform: translateY(-1px) scale(1.04);
+  background: rgba(52, 211, 153, 0.26) !important;
+  box-shadow: 0 12px 26px rgba(52, 211, 153, 0.2);
+}
+
+/* Modern delete button */
+.delete-btn {
+  padding: 0.4rem 0.9rem !important;
+  font-size: 0.95rem !important;
+  min-width: 42px;
+  height: 38px;
+  border-radius: 999px !important;
+  background: rgba(248, 113, 113, 0.14) !important;
+  color: #fee2e2 !important;
+  border: 1px solid rgba(248, 113, 113, 0.35) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+  transform: translateY(-1px) scale(1.04);
+  background: rgba(248, 113, 113, 0.24) !important;
+  box-shadow: 0 12px 26px rgba(248, 113, 113, 0.2);
 }
 
 /* Completed task styling */
@@ -283,4 +317,31 @@ header {
 #taskList::-webkit-scrollbar-thumb {
   background: rgba(148, 163, 184, 0.28);
   border-radius: 999px;
+}
+/* ── Add this to the bottom of your styles.css ── */
+
+/* Due date input sits between task text and action buttons */
+.task-due-date {
+  flex-shrink: 0;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.82rem;
+  font-family: inherit;
+  height: 36px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  /* Remove default date-picker styling on webkit */
+  -webkit-appearance: none;
+  color-scheme: dark;
+}
+
+.task-due-date:hover,
+.task-due-date:focus {
+  outline: none;
+  border-color: rgba(96, 165, 250, 0.6);
+  color: var(--text);
+  box-shadow: 0 0 0 0.2rem rgba(56, 189, 248, 0.12);
 }
